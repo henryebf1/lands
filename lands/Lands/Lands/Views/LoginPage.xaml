@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Lands">
+             Title="Datos">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
             <StackLayout
             Padding="5">
                 <Image
-                Source="instagram.png"
+                Source="uvm.png"
                 WidthRequest="200">
               
             </Image>
@@ -24,7 +24,7 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="E-mail"
+                        Text="Correo"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
@@ -32,12 +32,12 @@
                         Grid.Column="1"
                         Keyboard="Email"
                         Text="{Binding Email, Mode=TwoWay}"
-                        Placeholder="Enter your email...">
+                        Placeholder="Ingresa Tu Correo...">
                     </Entry>
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Password"
+                        Text="Contraseña"
                         VerticalOptions="Center">
                     </Label>
                     <Entry
@@ -45,7 +45,7 @@
                         Grid.Column="1"
                         IsPassword="True"
                         Text="{Binding Password, Mode=TwoWay}"
-                        Placeholder="Enter your Password...">
+                        Placeholder="Ingresa Tu Contraseña...">
                     </Entry>
                 </Grid>
                 <ActivityIndicator
@@ -58,7 +58,7 @@
                     VerticalOptions="CenterAndExpand">
                 <Label
                     HorizontalOptions="StartAndExpand"
-                    Text="Rememberme on this device"
+                    Text="Recordar Contraseña En Este Dispositivo"
                     VerticalOptions="Center">
                 
                 </Label>
@@ -70,7 +70,7 @@
             </StackLayout>
                 <Label
                     HorizontalOptions="Center"
-                    Text="Forgot your password?"
+                    Text="Olvidaste Tu Contraseña?"
                     TextColor="Blue"
                     VerticalOptions="CenterAndExpand">
                     
@@ -86,7 +86,7 @@
                 HeightRequest="46"
                 HorizontalOptions="FillAndExpand"
                 IsEnabled="{Binding IsEnable, Mode=TwoWay}"
-                Text="Login"
+                Text="Ingresar"
                 TextColor="White">
                 
             </Button>
@@ -96,7 +96,7 @@
                 HeightRequest="46"
                 HorizontalOptions="FillAndExpand"                
                 IsEnabled="{Binding IsEnable, Mode=TwoWay}"
-                Text="Register"
+                Text="Registrarse"
                 TextColor="White">
 
             </Button>

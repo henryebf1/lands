@@ -2,11 +2,13 @@
 {
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
+    using Views;
     using Xamarin.Forms;
 
     public class LoginViewModel : BaseViewModels
     {
         #region Attributes
+        private string email;
         private string password;
         private bool isRunning;
         private bool isEnabled;
@@ -15,8 +17,8 @@
         #region Propierties
         public string Email
         {
-            get;
-            set;
+            get { return email; }
+            set { SetValue(ref email, value); }
         }
         public string Password
         {
@@ -66,7 +68,7 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "You must enter an Email!",
+                    "Tu tal vez Ingresaste mal el correo!",
                     "Accept");
                 return;
             }
@@ -74,8 +76,8 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "You must enter a Password!",
-                    "Accept");
+                    "Tu tal vez Ingresaste mal la contraseña!",
+                    "Aceptar");
                 return;
             }
             this.IsRunning = true;
@@ -87,18 +89,21 @@
                 this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Email or Password incorrect!",
-                    "Accept");
+                    "Correo o Contraseña incorrecta!",
+                    "Aceptar");
                 this.Password = string.Empty;
                 return;
             }
 
             this.IsRunning = false;
             this.IsEnabled = true;
-            await Application.Current.MainPage.DisplayAlert(
-                    "ok",
-                    "fuck yeah!",
-                    "Accept");
+
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Menu = new MenuViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new Ingresar());
+
             return;
         }
 
